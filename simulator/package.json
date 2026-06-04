@@ -1,0 +1,20 @@
+{
+  "name": "mls-testbed-simulator",
+  "version": "1.0.0",
+  "description": "MLS testbed simulation engine",
+  "scripts": {
+    "vector1": "ts-node src/index.ts vector1",
+    "vector2": "ts-node src/index.ts vector2",
+    "vector3": "ts-node src/index.ts vector3",
+    "vector4": "ts-node src/index.ts vector4"
+  },
+  "dependencies": {
+    "seedrandom": "^3.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/seedrandom": "^3.0.8",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}

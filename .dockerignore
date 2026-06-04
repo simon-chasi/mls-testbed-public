@@ -1,0 +1,21 @@
+# Rust build cache — rebuilt inside the container
+mls-cli/target
+
+# Node modules and compiled output — reinstalled/recompiled inside the container
+simulator/node_modules
+simulator/dist
+
+# Runtime output — exposed via volume mounts, not part of the image
+logs
+figures
+
+# Environment and secrets
+.env
+
+# Python cache
+**/__pycache__
+**/*.pyc
+**/*.pyo
+
+# macOS
+.DS_Store

@@ -1,0 +1,49 @@
+x-base: &base
+  build: .
+  volumes:
+    - ./logs:/app/logs
+    - ./figures:/app/figures
+  environment:
+    SEED: "${SEED:-42}"
+    MLS_CLI_PATH: /app/mls-cli/target/release/mls-cli
+    LOG_DIR: /app/logs
+    FIGURES_DIR: /app/figures
+
+services:
+  vector1:
+    <<: *base
+    command: >
+      sh -c "cd /app/simulator && npx ts-node src/index.ts vector1 &&
+             cd /app && python3 analysis/vector1_analysis.py"
+
+  vector2:
+    <<: *base
+    command: >
+      sh -c "cd /app/simulator && npx ts-node src/index.ts vector2 &&
+             cd /app && python3 analysis/vector2_analysis.py"
+
+  vector3:
+    <<: *base
+    command: >
+      sh -c "cd /app/simulator && npx ts-node src/index.ts vector3 &&
+             cd /app && python3 analysis/vector3_analysis.py"
+
+  vector4:
+    <<: *base
+    command: >
+      sh -c "cd /app/simulator && npx ts-node src/index.ts vector4 &&
+             cd /app && python3 analysis/vector4_analysis.py"
+
+  all:
+    <<: *base
+    command: >
+      sh -c "cd /app/simulator &&
+             npx ts-node src/index.ts vector1 &&
+             npx ts-node src/index.ts vector2 &&
+             npx ts-node src/index.ts vector3 &&
+             npx ts-node src/index.ts vector4 &&
+             cd /app &&
+             python3 analysis/vector1_analysis.py &&
+             python3 analysis/vector2_analysis.py &&
+             python3 analysis/vector3_analysis.py &&
+             python3 analysis/vector4_analysis.py"

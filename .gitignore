@@ -1,0 +1,25 @@
+# Rust build output
+mls-cli/target/
+
+# Node
+simulator/node_modules/
+simulator/dist/
+
+# Python
+__pycache__/
+*.pyc
+analysis/__pycache__/
+.venv/
+
+# Runtime output (not committed — regenerate with the testbed)
+# .gitkeep is excluded so the directories exist on a fresh clone
+logs/*
+!logs/.gitkeep
+figures/*
+!figures/.gitkeep
+
+# Environment
+.env
+
+# macOS
+.DS_Store
