@@ -64,7 +64,7 @@ async fn respond(stdout: &mut tokio::io::Stdout, v: Value) {
 
 // ── Entry point ────────────────────────────────────────────────────────────────
 
-#[tokio::main]
+#[tokio::main(flavor = "current_thread")]
 async fn main() {
     let stdin = tokio::io::stdin();
     let mut stdout = tokio::io::stdout();

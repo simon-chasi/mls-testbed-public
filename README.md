@@ -84,6 +84,14 @@ After a successful run:
 - `figures/vector1_size_distribution.pdf` — for LaTeX inclusion
 - `figures/vector1_timeline.pdf` — for LaTeX inclusion
 
+### Known limitations
+
+**vector4 at N=128 requires sufficient OS thread headroom.** The scenario runs 128 `mls-cli`
+processes simultaneously; each initialises a Rayon thread pool on first use. On hosts with a
+low container PID/thread ceiling (rootless Podman, resource-constrained VMs) this can fail
+with `EAGAIN`. If you hit this, raise the limit: `podman run --pids-limit=-1 ...` or add
+`pids_limit: -1` to the service in `docker-compose.yml`.
+
 ---
 
 ## Repository structure
