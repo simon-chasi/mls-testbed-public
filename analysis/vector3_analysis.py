@@ -70,7 +70,7 @@ if len(df_sync) >= 2:
         slope * x_fit + intercept,
         color="black",
         linewidth=1.5,
-        label=f"Fit: {slope:.3f}·B {"+" if intercept > 0 else "-"} {intercept:.3f} (R\u00b2 = {r**2:.3f})",
+        label=f"Fit: {slope:.3f}·B {'+' if intercept > 0 else '-'} {intercept:.3f} (R\u00b2 = {r**2:.3f})",
     )
 
 ax1.set_xlabel("Backlog size B (missed epochs)")
