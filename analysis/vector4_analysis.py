@@ -98,7 +98,7 @@ x_line = np.linspace(x_fit.min() - 0.2, x_fit.max() + 0.2, 200)
 ax_a.plot(
     x_line, slope * x_line + intercept,
     color="black", linewidth=1.5, zorder=4,
-    label=f"Fit: {slope:.1f}·log₂(N) + {intercept:.1f}  (R² = {r2:.4f})",
+    label=f"Fit: {slope:.1f}·log₂(N) + {intercept:.1f}  (R² = {r2:.6f})",
 )
 
 # Annotate x-ticks with both log2(N) and N values
