@@ -70,12 +70,12 @@ if len(df_sync) >= 2:
         slope * x_fit + intercept,
         color="black",
         linewidth=1.5,
-        label=f"Fit: {slope:.3f}·B {'+' if intercept > 0 else '-'} {intercept:.3f} (R\u00b2 = {r**2:.3f})",
+        label=f"Fit: {slope:.3f}·B {'+' if intercept > 0 else '−'} {abs(intercept):.3f} (R\u00b2 = {r**2:.4f})",
     )
 
 ax1.set_xlabel("Backlog size B (missed epochs)")
 ax1.set_ylabel("Synchronisation duration (in ms)")
-ax1.set_title("Vector 3: Synchronisation duration vs. Backlog Size")
+ax1.set_title("Vector 3: Synchronisation duration vs. Backlog size")
 ax1.legend(fontsize=9)
 ax1.grid(linestyle="--", alpha=0.4)
 ax1.set_xticks(df_sync["backlog_size"].astype(int).values)
